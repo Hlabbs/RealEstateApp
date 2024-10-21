@@ -47,14 +47,17 @@ class Incident : AppCompatActivity() {
 
         // Set an OnClickListener to navigate to the SettingsAccount activity
         settingsButton.setOnClickListener {
-            val intent = Intent(this, SettingsAccount::class.java)
+            val intent = Intent(this@Incident, SettingsActivity::class.java)
             startActivity(intent)
         }
 
         // Trigger opening gallery
-        profilePicture.setOnClickListener {
-            openGallery()
-        }
+
+                findViewById<ImageView>(R.id.profilePicture).setOnClickListener {
+                    // Navigate to ProfileActivity (assuming you have a ProfileActivity)
+                    val intent = Intent(this, SettingsAccount::class.java)
+                    startActivity(intent)
+                }
     }
 
     // Function to open gallery (placeholder)
