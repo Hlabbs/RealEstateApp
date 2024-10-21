@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "81647468553",
+    "firebase_url": "https://real-esate-app-da65c-default-rtdb.firebaseio.com",
+    "project_id": "real-esate-app-da65c",
+    "storage_bucket": "real-esate-app-da65c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81647468553:android:0d2689e6ed1e526d3db8d8",
+        "android_client_info": {
+          "package_name": "com.example.mawanele"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlz0GsWWeThRH4totk0EVotzvspgjI2-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81647468553:android:92cc546bde9f2c693db8d8",
+        "android_client_info": {
+          "package_name": "com.st10083425.mawanele"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlz0GsWWeThRH4totk0EVotzvspgjI2-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

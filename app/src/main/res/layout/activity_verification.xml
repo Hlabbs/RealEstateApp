@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#1C1C1C"
+    android:gravity="center"
+    tools:context=".VerificationActivity">
+
+    <!-- Verification Title Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Your Phone"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textSize="30sp" />
+
+    <!-- Single EditText for entire verification code -->
+    <EditText
+        android:id="@+id/etVerificationCode"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Resend Code Text -->
+    <TextView
+        android:id="@+id/tvResendCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend Code?"
+        android:textColor="#FFA500"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:clickable="true" />
+
+    <!-- Verify Button -->
+    <Button
+        android:id="@+id/btnVerify"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Verify"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFA500"
+        android:gravity="center" />
+
+    <!-- Incorrect Code Warning -->
+    <TextView
+        android:id="@+id/tvIncorrectCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Incorrect code? Try again."
+        android:textColor="#FF0000"
+        android:textSize="14sp"
+        android:visibility="gone" /> <!-- Hidden by default -->
+
+</LinearLayout>

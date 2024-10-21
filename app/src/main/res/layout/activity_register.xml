@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/building_yellow"
+    android:gravity="center_horizontal"
+    tools:context=".RegisterActivity">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mawanele_logo_2"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Register Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textSize="30sp" />
+
+    <!-- Flat Number Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_flat_number" />
+
+        <EditText
+            android:id="@+id/etFlatNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Flat Number"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="text"
+            android:background="@null" />
+    </LinearLayout>
+
+    <!-- Email Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_email" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Email"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:background="@null" />
+    </LinearLayout>
+
+    <!-- Phone Number Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Country Code TextView -->
+        <TextView
+            android:id="@+id/tvSelectedCountryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="+1"
+            android:textColor="#656565"
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Phone Number EditText -->
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="phone"
+            android:background="@null" />
+    </LinearLayout>
+
+    <!-- Password Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="26dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_password" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Password"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"
+            android:background="@null" />
+    </LinearLayout>
+    <!-- Show Password Checkbox -->
+    <CheckBox
+        android:id="@+id/cbShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Password"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="26dp" />
+
+    <!-- Terms of Service and Privacy Policy -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By signing up, you agree to the Terms of Service and Privacy Policy"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textSize="12sp" />
+
+    <!-- Create Account Button -->
+    <Button
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFA500" />
+
+    <!-- Already Have an Account -->
+    <TextView
+        android:id="@+id/tvAlreadyHaveAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Sign In"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="14sp" />
+</LinearLayout>

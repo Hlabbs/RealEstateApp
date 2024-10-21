@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/building_yellow"
+    android:gravity="center_horizontal"
+    tools:context=".LoginActivity">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mawanele_logo_2"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Login Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textSize="30sp" />
+
+    <!-- Subtext: Use phone number to sign in -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please use your phone number to sign in"
+        android:textColor="#E8E8E8"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textSize="14sp" />
+
+    <!-- Phone Number Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvSelectedCountryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:text="+1"
+            android:textColor="#656565"
+            android:textSize="18sp" />
+
+        <!-- Phone Number EditText -->
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Phone Number"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="phone"
+            android:background="@null" />
+    </LinearLayout>
+
+    <!-- Password Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_password" /> <!-- Use an appropriate password icon -->
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Password"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"
+            android:background="@null" />
+    </LinearLayout>
+
+    <!-- Show Password Checkbox -->
+    <CheckBox
+        android:id="@+id/cbShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Password"
+        android:textColor="#FFFFFF" />
+
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFA500" />
+
+    <!-- No Account? Sign Up -->
+    <TextView
+        android:id="@+id/tvNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign Up"
+        android:textColor="#F1F1F1"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="14sp" />
+
+</LinearLayout>

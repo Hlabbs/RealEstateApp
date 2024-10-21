@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C1C1C"
+    android:padding="16dp"
+    tools:context=".SettingsAccount">
+
+
+    <!-- Edit Account Page Title -->
+    <TextView
+        android:id="@+id/editAccountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Account"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginTop="2dp"
+        android:gravity="start" />
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/editAccountTitle"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_account"
+        android:scaleType="centerCrop"
+        android:contentDescription="" />
+
+    <!-- Change Profile Picture Button -->
+    <Button
+        android:id="@+id/changeProfilePicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileImageView"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Change Picture"
+        android:backgroundTint="#FFA500"
+        android:textColor="#FFFFFF" />
+
+    <!-- Phone Number Field -->
+    <EditText
+        android:id="@+id/editPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/changeProfilePicButton"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:hint="Phone Number"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF" />
+
+    <!-- Flat Number Field -->
+    <EditText
+        android:id="@+id/editFlatNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:hint="Flat Number"
+        android:textColorHint="#FFFFFF"
+        android:backgroundTint="#FFFFFF" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPhoneNumber"
+        android:layout_marginTop="80dp"
+        android:text="Save"
+        android:backgroundTint="#FFA500"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
