@@ -135,7 +135,7 @@
         android:id="@+id/btnUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload File"
+        android:text="Upload Image"
         android:textColor="#FFFFFF"
         android:backgroundTint="#008CBA"
         android:layout_below="@id/etDescription"
