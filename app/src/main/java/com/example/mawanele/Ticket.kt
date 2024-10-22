@@ -1,4 +1,5 @@
 package com.example.mawanele
+
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -6,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +37,6 @@ class Ticket : AppCompatActivity() {
         setContentView(R.layout.activity_ticket)
 
         // Initialize Firebase
-
         FirebaseApp.initializeApp(this)
         database = FirebaseDatabase.getInstance().getReference("tickets")
         auth = FirebaseAuth.getInstance()
@@ -56,6 +55,46 @@ class Ticket : AppCompatActivity() {
 
         etDate.setOnClickListener {
             showDatePickerDialog()
+        }
+
+        // Bottom Navigation Bar - Assign click listeners to the nav buttons
+        findViewById<LinearLayout>(R.id.navHome).setOnClickListener {
+            // Current page is Home, no need to navigate
+        }
+
+        findViewById<LinearLayout>(R.id.navIncident).setOnClickListener {
+            // Navigate to Incident activity
+            startActivity(Intent(this@Ticket, Incident::class.java))
+        }
+
+        findViewById<LinearLayout>(R.id.navNotifications).setOnClickListener {
+            // Navigate to Notifications activity
+            startActivity(Intent(this@Ticket, Notifications::class.java))
+        }
+
+        findViewById<LinearLayout>(R.id.navTickets).setOnClickListener {
+            // Navigate to Ticket Activity
+            startActivity(Intent(this@Ticket, Ticket::class.java))
+        }
+
+        findViewById<LinearLayout>(R.id.navSupport).setOnClickListener {
+            // Navigate to SettingsSupport activity
+            startActivity(Intent(this@Ticket, SettingsSupport::class.java))
+        }
+
+        // Find the settings button using its ID
+        val settingsButton: ImageView = findViewById(R.id.settingsButton)
+
+        // Set an OnClickListener to navigate to the SettingsAccount activity
+        settingsButton.setOnClickListener {
+            val intent = Intent(this@Ticket, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Profile picture click action
+        findViewById<ImageView>(R.id.profilePicture).setOnClickListener {
+            val intent = Intent(this, SettingsAccount::class.java)
+            startActivity(intent)
         }
     }
 
@@ -122,7 +161,7 @@ class Ticket : AppCompatActivity() {
 
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             val capturedImage = data?.extras?.get("data") as Bitmap
-            profilePicture.setImageBitmap(capturedImage) // Display captured image in ImageView
+           // profilePicture.setImageBitmap(capturedImage) // Display captured image in ImageView
             imageUri = getImageUri(capturedImage) // Convert Bitmap to Uri if needed
         }
     }
@@ -150,7 +189,6 @@ class Ticket : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            // Update the selectedDate variable and the EditText
             selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
             etDate.setText(selectedDate) // Display selected date in EditText
         }, year, month, day)
@@ -162,4 +200,3 @@ class Ticket : AppCompatActivity() {
         private const val CAMERA_REQUEST_CODE = 1000
     }
 }
-
