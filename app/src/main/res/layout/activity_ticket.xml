@@ -130,7 +130,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-
+    <!-- Upload Button -->
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload File"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#008CBA"
+        android:layout_below="@id/etDescription"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:onClick="uploadFile" />
 
     <!-- Submit Button -->
     <Button
@@ -140,7 +153,7 @@
         android:text="Submit"
         android:textColor="#FFFFFF"
         android:backgroundTint="#FFA500"
-        android:layout_below="@id/etDescription"
+        android:layout_below="@id/btnUpload"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

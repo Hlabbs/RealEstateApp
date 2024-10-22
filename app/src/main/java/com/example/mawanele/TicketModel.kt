@@ -1,12 +1,12 @@
 package com.example.mawanele
 
-class TicketModel(
-    val ticketId: String = "", // Unique ticket ID
-    val userid: String = "", // Default value
-    val email: String = "",
-    val subject: String = "",
-    val date: String = "",
-    val description: String = ""
+data class TicketModel(
+    val ticketId: String = "",         // Unique identifier for the ticket
+    val userid: String = "",           // User ID of the person submitting the ticket
+    val subject: String = "",           // Subject of the ticket
+    val description: String = "",       // Description of the issue
+    val imageUrl: String = "" ,          // URL of the uploaded image (if applicable)
+    val date: String = ""  // Add this line to include date
 )
 
 
