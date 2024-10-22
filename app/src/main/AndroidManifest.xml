@@ -52,6 +52,13 @@
 
         </activity>
 
+        <!-- Define Notifications -->
+        <activity
+            android:name=".SettingsNotification"
+            android:exported="true">
+
+        </activity>
+
         <!-- Define Settings Support -->
       <activity
             android:name=".SettingsSupport"

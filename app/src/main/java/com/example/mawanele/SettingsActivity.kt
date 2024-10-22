@@ -1,6 +1,7 @@
 package com.example.mawanele
 
 import android.content.Intent
+import android.media.audiofx.EnvironmentalReverb.Settings
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
@@ -48,7 +49,7 @@ class SettingsActivity : AppCompatActivity() {
 
         findViewById<LinearLayout>(R.id.navNotifications).setOnClickListener {
             // Navigate to Notifications activity
-            startActivity(Intent(this@SettingsActivity, Notifications::class.java))
+            startActivity(Intent(this@SettingsActivity, SettingsNotification::class.java))
         }
 
         findViewById<LinearLayout>(R.id.navTickets).setOnClickListener {
