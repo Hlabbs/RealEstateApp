@@ -15,10 +15,11 @@ import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
-class SettingsAccount : AppCompatActivity() {
+class   SettingsAccount : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private lateinit var profileImageView: ImageView
     private val REQUEST_CODE_IMAGE_CAPTURE = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,8 @@ class SettingsAccount : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().getReference("Users")
+
+        profileImageView = findViewById(R.id.profileImageView) // Reference to the profile ImageView
 
         val userId = auth.currentUser?.uid
 
@@ -44,7 +47,7 @@ class SettingsAccount : AppCompatActivity() {
 
                         // Load profile picture (if profile_url is not null)
                         profileUrl?.let {
-                             Glide.with(this@SettingsAccount).load(profileUrl).into(findViewById<ImageView>(R.id.profileImageView))
+                            Glide.with(this@SettingsAccount).load(profileUrl).into(profileImageView)
                         }
                     } else {
                         Toast.makeText(this@SettingsAccount, "User data not found.", Toast.LENGTH_SHORT).show()
@@ -74,10 +77,27 @@ class SettingsAccount : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Profile updated successfully.", Toast.LENGTH_SHORT).show()
+
+                            // Navigate back to the home page after saving
+                            val intent = Intent(this, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish() // Optionally finish the current activity to remove it from the back stack
                         } else {
                             Toast.makeText(this, "Failed to update profile.", Toast.LENGTH_SHORT).show()
                         }
                     }
+                /*
+                // Update user data in Realtime Database
+                database.child(userId).updateChildren(updates)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Profile updated successfully.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Failed to update profile.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                 */
             }
         }
 
@@ -97,6 +117,11 @@ class SettingsAccount : AppCompatActivity() {
 
         if (requestCode == REQUEST_CODE_IMAGE_CAPTURE && resultCode == RESULT_OK && userId != null) {
             val capturedImage = data?.extras?.get("data") as Bitmap
+
+            // Immediately display the captured image in the ImageView
+            profileImageView.setImageBitmap(capturedImage)
+
+            // Upload the image to Firebase
             uploadCapturedImageToFirebase(capturedImage, userId)
         }
     }
@@ -124,6 +149,9 @@ class SettingsAccount : AppCompatActivity() {
                 database.child(userId).updateChildren(updates).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Profile picture updated.", Toast.LENGTH_SHORT).show()
+
+                        // Load the image from Firebase Storage in case there were any issues
+                        Glide.with(this).load(profileUrl).into(profileImageView)
                     } else {
                         Toast.makeText(this, "Failed to update profile picture.", Toast.LENGTH_SHORT).show()
                     }
@@ -131,9 +159,6 @@ class SettingsAccount : AppCompatActivity() {
             }
         }.addOnFailureListener {
             Toast.makeText(this, "Image upload failed.", Toast.LENGTH_SHORT).show()
-
-            // Optional: Set a default profile_url if upload fails
-            database.child(userId).child("profile_url").setValue("default_image_url")
         }
     }
 }

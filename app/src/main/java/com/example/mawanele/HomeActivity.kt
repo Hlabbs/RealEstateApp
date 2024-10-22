@@ -8,20 +8,41 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
 class HomeActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Get the current user
+        val user = FirebaseAuth.getInstance().currentUser
 
+        // Find the welcomeText TextView
+        val welcomeText = findViewById<TextView>(R.id.welcomeText)
+
+        // Check if the user is not null and update the welcome message with the user's email
+        if (user != null) {
+            val email = user.email
+            welcomeText.text = "Welcome, $email"
+        } else {
+            welcomeText.text = "Welcome to the Home Page"
+        }
+
+
+        // Bottom Navigation Bar - Assign click listeners to the nav buttons
+        findViewById<LinearLayout>(R.id.navHome).setOnClickListener {
+            // Current page is Home, no need to navigate
+        }
         // Bottom Navigation Bar - Assign click listeners to the nav buttons
         findViewById<LinearLayout>(R.id.navHome).setOnClickListener {
             // Current page is Home, no need to navigate
