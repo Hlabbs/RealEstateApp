@@ -52,7 +52,7 @@
 
         </activity>
 
-        <!-- Define Notifications -->
+        <!-- Define Settings Notifications -->
         <activity
             android:name=".SettingsNotification"
             android:exported="true">
