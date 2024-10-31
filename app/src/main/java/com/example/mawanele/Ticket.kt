@@ -22,6 +22,7 @@ class Ticket : AppCompatActivity() {
     private lateinit var etSubject: EditText
     private lateinit var etDescription: EditText
     private lateinit var etDate: EditText // Date EditText
+    private lateinit var etEmail: EditText // Email EditText
     private lateinit var btnSubmit: Button
     private lateinit var btnUpload: Button
     private lateinit var profilePicture: ImageView // Profile picture ImageView
@@ -102,6 +103,7 @@ class Ticket : AppCompatActivity() {
         etSubject = findViewById(R.id.etSubject)
         etDescription = findViewById(R.id.etDescription)
         etDate = findViewById(R.id.etDate) // Initialize Date EditText
+        etEmail = findViewById(R.id.etEmail) // Initialize Email EditText
         btnSubmit = findViewById(R.id.btnSubmit)
         btnUpload = findViewById(R.id.btnUpload)
         profilePicture = findViewById(R.id.profilePicture) // Initialize ImageView
@@ -115,6 +117,7 @@ class Ticket : AppCompatActivity() {
     private fun submitTicket() {
         val subject = etSubject.text.toString().trim()
         val description = etDescription.text.toString().trim()
+        val email = etEmail.text.toString().trim() // Get email input
         val uid = auth.currentUser?.uid // This can be null
 
         // Ensure ticketId is generated
@@ -122,21 +125,21 @@ class Ticket : AppCompatActivity() {
 
         // If there is an image, upload it to Firebase Storage
         if (imageUri != null) {
-            uploadImageToFirebase(ticketId, subject, description, uid)
+            uploadImageToFirebase(ticketId, subject, description, email, uid)
         } else {
             // Handle case where there's no image
-            val ticket = TicketModel(ticketId, uid ?: "", subject, description, "", etDate.text.toString())
+            val ticket = TicketModel(ticketId, uid ?: "", subject, description, "", etDate.text.toString(), email)
             saveTicketToDatabase(ticket)
         }
     }
 
-    private fun uploadImageToFirebase(ticketId: String, subject: String, description: String, uid: String?) {
+    private fun uploadImageToFirebase(ticketId: String, subject: String, description: String, email: String, uid: String?) {
         val fileReference = storageReference.child("$ticketId.jpg")
 
         fileReference.putFile(imageUri!!)
             .addOnSuccessListener { taskSnapshot ->
                 fileReference.downloadUrl.addOnSuccessListener { downloadUri ->
-                    val ticket = TicketModel(ticketId, uid ?: "", subject, description, downloadUri.toString(), etDate.text.toString())
+                    val ticket = TicketModel(ticketId, uid ?: "", subject, description, downloadUri.toString(), etDate.text.toString(), email)
                     saveTicketToDatabase(ticket)
                 }
             }
@@ -161,7 +164,7 @@ class Ticket : AppCompatActivity() {
 
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             val capturedImage = data?.extras?.get("data") as Bitmap
-           // profilePicture.setImageBitmap(capturedImage) // Display captured image in ImageView
+            // profilePicture.setImageBitmap(capturedImage) // Display captured image in ImageView
             imageUri = getImageUri(capturedImage) // Convert Bitmap to Uri if needed
         }
     }
@@ -177,6 +180,7 @@ class Ticket : AppCompatActivity() {
         etSubject.text.clear()
         etDescription.text.clear()
         etDate.text.clear() // Clear the date EditText
+        etEmail.text.clear() // Clear the email EditText
         profilePicture.setImageResource(R.drawable.ic_account) // Reset to a default image if needed
         imageUri = null
         selectedDate = ""

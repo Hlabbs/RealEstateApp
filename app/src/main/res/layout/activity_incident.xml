@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Maintenance Details [EXAMPLE}"
+            android:text="Maintenance Details"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_marginBottom="8dp" />
@@ -75,7 +75,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reported On: October 15, 2024"
+            android:text="Reported On: 10-01-2024"
             android:textColor="#B3B3B3"
             android:textSize="16sp" />
 
@@ -83,19 +83,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status: In Progress"
+            android:text="Status: Pending"
             android:textColor="#B3B3B3"
             android:textSize="16sp" />
 
         <!-- Maintenance Message -->
-        <TextView
-            android:id="@+id/maintenanceMessageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No maintenance scheduled."
-        android:textColor="#B3B3B3"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
 
     </LinearLayout>
 

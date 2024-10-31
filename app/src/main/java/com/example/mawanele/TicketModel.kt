@@ -6,7 +6,8 @@ data class TicketModel(
     val subject: String = "",           // Subject of the ticket
     val description: String = "",       // Description of the issue
     val imageUrl: String = "" ,          // URL of the uploaded image (if applicable)
-    val date: String = ""  // Add this line to include date
+    val date: String = "" , // Add this line to include date
+    val email: String // Add email property
 )
 
 
